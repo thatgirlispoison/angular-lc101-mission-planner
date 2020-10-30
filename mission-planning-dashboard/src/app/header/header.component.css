@@ -1,0 +1,9 @@
+h1, h3 {
+    text-align: center;
+}
+h1 {
+    border-style: groove;
+    border-color: rgb(135, 247, 157);
+    color: blueviolet;
+    background-color: aquamarine;
+}
