@@ -13,17 +13,20 @@ export class CrewComponent implements OnInit {
     {name: "Ellen Ochoa", firstMission: true}
   ];
   memberBeingEdited: object = null;
+  crewMember: boolean = false;
   
   add(memberName: string, isFirst: boolean) {
     for (let i = 0; i < this.crew.length; i++) {
-      this.crew.push({ name: memberName, firstMission: isFirst })
-            //console.log(this.crew[i].name)
-      // if (!this.crew[i].name.includes(memberName)) {
-      //   this.crew.push({ name: memberName, firstMission: isFirst });
-      // }
-      
+      if (this.crew[i]['name'] === memberName) {
+        this.crewMember = true;
+      }
     }
+    if (!this.crewMember) {
+      this.crew.push({ name: memberName, firstMission: isFirst });
+    }
+    this.crewMember = false;
   }
+  
   remove(member: object) {
     let index = this.crew.indexOf(member);
     this.crew.splice(index, 1);
